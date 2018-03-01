@@ -1,48 +1,85 @@
 <!doctype html>
 <html>
 <head>
-<title>Document</title>
+	<title>Document</title>
+	
 </head>
+
 <body>
-        <div class="question" >
-            <h1>Batman's first name is?</h1>
-            <label><input type="radio" name="q1" value="Bruce"> Bruce</label>
-            <label><input type="radio" name="q1" value="Mark"> Mark</label>
-            <label><input type="radio" name="q1" value="Steven"> Steven</label>
-            <br>
-            <button class="next">Next</button>
-        </div>
-        <div class="question" style="display: none;" >
-            <h1>Spiderman lives in:</h1>
-            <label><input type="radio" name="q2" value="New Jersey"> New Jersey</label>
-            <label><input type="radio" name="q2" value="New York"> New York</label>
-            <label><input type="radio" name="q2" value="Boston"> Boston</label>
-            <br>
-            <button class="next">Next</button>
-        </div>
-        <div class="question" style="display: none;">
-            <h1>How many claws does Wolverine have?</h1>
-            <label><input type="radio" name="q3" value="2"> 2</label>
-            <label><input type="radio" name="q3" value="4"> 4</label>
-            <label><input type="radio" name="q3" value="6"> 6</label>
-            <br>
-            <button class="next">Finish</button>
-        </div>
-        <div class="question" style="display: none;">
-            <h1>You Scored:</h1>
-            <h1></h1>
-        </div>
-        <script>
-            
-            var button = document.getElementsByClassName('next');
+	<div class="question">
+		<h1>Batman's first name is?</h1>
+		<label><input type="radio" name="q1" value="Bruce"> Bruce</label>
+		<label><input type="radio" name="q1" value="Mark"> Mark</label>
+		<label><input type="radio" name="q1" value="Steven"> Steven</label>
+		<br>
+		<button class="next">Next</button>
+	</div>
+
+	<div class="question" style="display: none;">
+		<h1>Spiderman lives in:</h1>
+		<label><input type="radio" name="q2" value="New Jersey"> New Jersey</label>
+		<label><input type="radio" name="q2" value="New York"> New York</label>
+		<label><input type="radio" name="q2" value="Boston"> Boston</label>
+		<br>
+		<button class="next">Next</button>
+	</div>
+
+	<div class="question" style="display: none;">
+		<h1>How many claws does Wolverine have?</h1>
+		<label><input type="radio" name="q3" value="2"> 2</label>
+		<label><input type="radio" name="q3" value="4"> 4</label>
+		<label><input type="radio" name="q3" value="6"> 6</label>
+		<br>
+		<button id="totalScore">Finish</button>
+	</div>
+
+	<div class="question" style="display: none;">
+		<h1>You Scored:</h1>
+		<h1 id="total"></h1>
+	</div>
+
+	<script>
+		var one = "Bruce";
+		var two = "New York";
+		var three = "6";
+		``
+		var score = 0;
+
+
+		var button = document.getElementsByClassName('next');
+		for (i = 0; i < button.length; i++) {
+			button[i].onclick = function() {
+				this.parentElement.style.display = 'block';
+				this.parentElement.nextElementSibling.style.display = 'block';
+			};
+
+		}
+		document.getElementById('totalScore').onclick = function() {
+
+			this.parentElement.style.display = 'block';
+			this.parentElement.nextElementSibling.style.display = 'block';
+			first = document.querySelector('input[name="q1"]:checked').value;
+			second = document.querySelector('input[name="q2"]:checked').value;
+			third = document.querySelector('input[name="q3"]:checked').value;
+
+			if (first == one) {
+				++score;}
+				else {score ==0
+				}
 			
-            for(i=0; i<button.length; i++) {
-                button[i].onclick = function() {
-                    this.parentElement.style.display = 'block';
-                    this.parentElement.nextElementSibling.style.display = 'block';
-                };
-				
-            }
-        </script>
+			if (second == two) {
+				++score;}
+				else {score ==0
+				}
+			
+			if (third == three) {
+				++score;}
+				else {score ==0
+				}
+			
+
+			document.getElementById('total').innerHTML = score;
+		}
+	</script>
 </body>
 </html>
